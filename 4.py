@@ -48,7 +48,7 @@ def is_valid_passport_2(passport):
 
 
 def run(passport_checker):
-    return len([1 for passport in passports if passport_checker(passport)])
+    return sum([passport_checker(passport) for passport in passports])
 
 
 print(run(is_valid_passport_1))
