@@ -8,7 +8,7 @@ part1 = part2 = 0
 for group in group_lines:
     all_answers = ''.join(group)
     distinct_answers = set(all_answers)
-    shared_answers = set.intersection(*list(map(set, group)))
+    shared_answers = set.intersection(*map(set, group))
     part1 += len(distinct_answers)
     part2 += len(shared_answers)
 
