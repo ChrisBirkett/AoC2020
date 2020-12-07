@@ -1,7 +1,7 @@
 import fileinput
 
 lines = [line.replace('\n', '').split(' contain ') for line in fileinput.input()]
-rules = {k: v.replace('.', '') for (k, v) in lines}
+rules = {k: v.replace('.', '').split(', ')for (k, v) in lines}
 
 
 def part1(search_bag):
@@ -19,7 +19,7 @@ def part1(search_bag):
 def get_contents(search_colour):
     if search_colour[-1:] != 's':
         search_colour += 's'
-    contents = rules[search_colour].split(', ')
+    contents = rules[search_colour]
     number_of_contents = 0
     for bag in contents:
         if bag == 'no other bags':
