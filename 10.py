@@ -20,6 +20,7 @@ def part1():
 
 
 def part2():
+    # this is far, far too complicated... totally unnecessary!
     subgroups = []
     current_subgroup = []
     for idx, number in enumerate(numbers):
