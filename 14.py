@@ -4,8 +4,8 @@ lines = [line.replace('\n', '').split(' = ') for line in fileinput.input()]
 
 
 def apply_p1_mask(value, mask):
-    value = value & int('0b' + mask.replace('X', '1'), 2)
-    value = value | int('0b' + mask.replace('X', '0'), 2)
+    value &= int(mask.replace('X', '1'), 2)
+    value |= int(mask.replace('X', '0'), 2)
     return value
 
 
@@ -14,10 +14,7 @@ def apply_p2_mask(value, mask):
     bin_value = '0' * (len(mask) - len(bin_value)) + bin_value
     acc = ''
     for idx, c in enumerate(mask):
-        if mask[idx] == '0':
-            acc += bin_value[idx]
-        else:
-            acc += mask[idx]
+        acc += bin_value[idx] if mask[idx] == '0' else mask[idx]
     return acc
 
 
