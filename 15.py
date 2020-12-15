@@ -1,16 +1,16 @@
 inputs = 2, 0, 1, 9, 5, 19
-numbers = {v: k for k, v in enumerate(inputs)}
+original_numbers = {v: k for k, v in enumerate(inputs)}
 
 
 def run(limit):
-    run_numbers = numbers.copy()
+    numbers = original_numbers.copy()
     current = 0
-    for i in range(len(run_numbers), limit):
-        last_seen = run_numbers.get(current, i)
-        run_numbers[current] = i
-        if i == limit - 1:
-            return current
-        current = i - last_seen
+    for i in range(len(numbers), limit):
+        last_seen = numbers.get(current, i)
+        numbers[current] = i
+        if i < limit - 1:
+            current = i - last_seen
+    return current
 
 
 print(run(2020))
