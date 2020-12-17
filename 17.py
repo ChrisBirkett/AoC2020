@@ -21,7 +21,7 @@ def get_number_of_active_neighbours(model, w, x, y, z):
              for wd in range(-1, 2)
              for xd in range(-1, 2)
              for yd in range(-1, 2)
-             for zd in range(-1, 2) if (wd != 0 or xd != 0 or yd != 0 or zd != 0)]
+             for zd in range(-1, 2) if not (wd == xd == yd == zd == 0)]
     return sum([model[w + wd][x + xd][y + yd][z + zd]
                 for wd, xd, yd, zd in steps
                 if 0 <= w + wd < len(model)
